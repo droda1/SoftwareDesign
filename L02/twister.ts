@@ -1,13 +1,34 @@
-function twister(satz) {
-    let words : String[] =  satz.split(" ");
-    let i: number;
-    for(i = 0; i<words.length; i++){
-        var charArray = words[i].split('').reverse();
-        words[i] = charArray.toString().split(',').join('');
-    }
-    let revLet = words.toString().split(",").join(" ")
-    console.log(revLet);
-    let revSentence = revLet.split(" ").reverse();
+/** reverts the characters of the words of an sentence.
+ * 
+ * @param toTwist     the string to be reverted.
+ * */
+function twistCharacters(toTwist : String){
+     let words = toTwist.split(" ");
+     for(let i = 0; i < words.length; i++){
+        words[i] = words[i].split("").reverse().join("");
+     }
+     return words.toString().split(",").join(" ");
 }
-var twistedString = twister("das ist ein test");
-console.log(twistedString)
+/** reverts a sentence.
+ * 
+ * @param toTwist     the setence to be reverted.
+ */
+function twistWords(toTwist : String){
+    return toTwist.split(" ").reverse().join(" ");
+}
+/**reverts the words and characters of a sentence.
+ * 
+ * @param toTwist 
+ */
+function twistCharactersAndWords(toTwist : String){
+    return twistCharacters(twistWords(toTwist))
+}
+//twist characters
+let twistedChars = twistCharacters("das ist ein test");
+console.log(twistedChars);
+//twist words
+let twistedWords = twistWords("das ist ein test");
+console.log(twistedWords);
+//twist characters and words
+let twistedCharactersAndWords = twistCharactersAndWords("das ist ein test");
+console.log(twistedCharactersAndWords);
