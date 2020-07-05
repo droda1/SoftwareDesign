@@ -2,6 +2,7 @@
  * 
  * @param toTwist     the string to be reverted.
  * */
+Parameters have to start with "_"
 function twistCharacters(toTwist : String){
      let words = toTwist.split(" ");
      for(let i = 0; i < words.length; i++){
